@@ -1,0 +1,20 @@
+<h1>
+  Elenco Prodotti
+</h1>
+
+<table *ngIf="prodotti.length>0">
+<tr>
+    <th>Nome</th>
+    <th>Categoria</th>
+    <th>Prezzo</th>
+    <th>Descrizione</th>
+</tr>
+
+<tr *ngFor="let prodotto of prodotti">
+    <td>{{prodotto.nome}}</td>
+    <td>{{prodotto.categoria}}</td>
+    <td>{{prodotto.prezzo | currency:'€'}}</td>
+    <td>{{prodotto.descrizione}}</td>
+</tr>
+
+</table>
