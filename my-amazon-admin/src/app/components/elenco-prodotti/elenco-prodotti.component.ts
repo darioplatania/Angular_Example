@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Prodotto } from 'src/app/model/prodotto';
+import { HttpClient } from '@angular/common/http';
+import { observable, Observable } from 'rxjs';
 
 @Component({
   selector: 'app-elenco-prodotti',
@@ -8,13 +10,19 @@ import { Prodotto } from 'src/app/model/prodotto';
 })
 export class ElencoProdottiComponent implements OnInit {
 
-prodotti : Prodotto[] = [
-  new Prodotto(1, 'Cat 1','Prod 1',1,'Desc_1'),
-  new Prodotto(2, 'Cat 2','Prod 2',1,'Desc_2'),
-  new Prodotto(3, 'Cat 3','Prod 3',1,'Desc_3'),
-];
+prodotti : Prodotto[] = [];
 
-  constructor() { }
+  constructor(
+    private httpClient : HttpClient
+  ) {
+    let observable : Observable<Prodotto[]>
+    = this.httpClient.get<Prodotto[]>('http://localhost:3000/prodotti');
+
+    observable.subscribe(
+      response => this.prodotti = response
+    );
+
+  }
 
   ngOnInit() {
   }

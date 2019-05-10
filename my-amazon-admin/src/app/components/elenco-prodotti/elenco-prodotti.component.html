@@ -1,20 +1,26 @@
-<h1>
-  Elenco Prodotti
-</h1>
+<div class="col-xs-8 col-xs-offset-1">
+  <br>
+  <br>
+    <table class="table" *ngIf="prodotti.length>0">
+      <thead>
+        <tr>
+          <th scope="col">Prodotto</th>
+          <th scope="col">Categoria</th>
+          <th scope="col">Prezzo</th>
+          <th scope="col">Descrizione</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let prodotto of prodotti">
+            <td>{{prodotto.nome}}</td>
+            <td>{{prodotto.categoria}}</td>
+            <td>{{prodotto.prezzo | currency : '€'}}</td>
+            <td>{{prodotto.descrizione}}</td>
+        </tr>
+        <br><br>
 
-<table *ngIf="prodotti.length>0">
-<tr>
-    <th>Nome</th>
-    <th>Categoria</th>
-    <th>Prezzo</th>
-    <th>Descrizione</th>
-</tr>
+      </tbody>
+    </table>
+  </div>
 
-<tr *ngFor="let prodotto of prodotti">
-    <td>{{prodotto.nome}}</td>
-    <td>{{prodotto.categoria}}</td>
-    <td>{{prodotto.prezzo | currency:'€'}}</td>
-    <td>{{prodotto.descrizione}}</td>
-</tr>
 
-</table>
