@@ -19,7 +19,9 @@ prodotti : Prodotto[] = [];
     = this.httpClient.get<Prodotto[]>('http://localhost:3000/prodotti');
 
     observable.subscribe(
-      response => this.prodotti = response
+      response => this.prodotti = response,
+      error =>console.log(error),
+      ()=>{console.log('fine');}
     );
 
   }

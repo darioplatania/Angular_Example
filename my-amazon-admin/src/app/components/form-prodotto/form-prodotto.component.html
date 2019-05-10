@@ -1,0 +1,49 @@
+<div class="col-xs-8 col-xs-offset-1">
+    <h1>Inserisci i tuoi dati</h1>
+    <form #formProdotto="ngForm" name="formProdotto">
+        <div class="form-group">
+            <label>Nome Prodotto</label>
+            <input class="form-control"
+                   [(ngModel)]="prodotto.nome"
+                   name="nomeProdotto" #nomeProdotto="ngModel"
+                   required>
+            <div *ngIf="nomeProdotto.invalid">
+              Inserisci il nome del prodotto
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Categoria</label>
+            <input class="form-control"
+                   [(ngModel)]="prodotto.categoria"
+                   name="nomeCategoria" #nomeCategoria="ngModel"
+                   required>
+            <div *ngIf="nomeCategoria.invalid">
+              Inserisci Categoria
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Prezzo</label>
+            <input type="number" class="form-control"
+                   [(ngModel)]="prodotto.prezzo"
+                   name="Prezzo" #Prezzo="ngModel"
+                   required>
+            <div *ngIf="Prezzo.invalid">
+              Inserisci Prezzo
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Descrizione</label>
+            <input class="form-control"
+                   [(ngModel)]="prodotto.descrizione"
+                   name="Descrizione" #Descrizione="ngModel"
+                   required>
+            <div *ngIf="Descrizione.invalid">
+              Inserisci Prezzo
+            </div>
+        </div>
+        <!--<button class="btn btn-primary" ng-disabled="ordineForm.$invalid">Invia</button>-->
+    </form>
+</div>
