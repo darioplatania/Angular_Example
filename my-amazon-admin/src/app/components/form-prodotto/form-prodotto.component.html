@@ -1,6 +1,6 @@
 <div class="col-xs-8 col-xs-offset-1">
     <h1>Inserisci i tuoi dati</h1>
-    <form #formProdotto="ngForm" name="formProdotto">
+    <form #formProdotto="ngForm" (ngSubmit)="salva()" name="formProdotto">
         <div class="form-group">
             <label>Nome Prodotto</label>
             <input class="form-control"
@@ -38,12 +38,8 @@
             <label>Descrizione</label>
             <input class="form-control"
                    [(ngModel)]="prodotto.descrizione"
-                   name="Descrizione" #Descrizione="ngModel"
-                   required>
-            <div *ngIf="Descrizione.invalid">
-              Inserisci Prezzo
-            </div>
+                   name="Descrizione" #Descrizione="ngModel">
         </div>
-        <!--<button class="btn btn-primary" ng-disabled="ordineForm.$invalid">Invia</button>-->
+        <button [disabled]="formProdotto.invalid" class="btn btn-success">Invia</button>
     </form>
 </div>
